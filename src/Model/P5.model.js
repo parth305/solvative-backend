@@ -1,9 +1,9 @@
 const mongoose=require("mongoose")
 
 let P5Schema = new mongoose.Schema({
-    givenBy: { type: mongoose.Schema.Types.ObjectId, required: true,ref:"User" },
-    amount:{type:Number, required: true,default:100}
-  
+    givenTo: { type: mongoose.Schema.Types.ObjectId, required: true,ref:"User" },
+    amount:{type:Number, required: true,default:100},
+    transecation:{type: mongoose.Schema.Types.ObjectId, required: true,ref:"Transecation" }
 },{
     timestamps:true
 });

@@ -1,24 +1,27 @@
-const mongoose=require("mongoose")
+const mongoose = require("mongoose");
 
 let UserSchema = new mongoose.Schema({
-  name: { type: String, required: true,unique:true },
-  P5:{
-    balance:{
-      type:Number,
-      default:100,
-      min:0
+  name: { type: String, required: true, unique: true },
+  P5: {
+    balance: {
+      type: Number,
+      default: 100,
+      min: 0,
     },
-    P5History:{ type: [mongoose.Schema.Types.ObjectId],ref:"P5History"}
+    P5History: { type: [mongoose.Schema.Types.ObjectId], ref: "P5History" },
   },
-  reward :{
-    balance:{
-      type:Number,
-      default:0
+  reward: {
+    balance: {
+      type: Number,
+      default: 0,
     },
-    P5History:{ type: [mongoose.Schema.Types.ObjectId],ref:"rewardHistory"}
+    RewardHistory: {
+      type: [mongoose.Schema.Types.ObjectId],
+      ref: "rewardHistory",
+    },
   },
 });
 
- const User = mongoose.model("User", UserSchema);
+const User = mongoose.model("User", UserSchema);
 
- module.exports=User
+module.exports = User;
