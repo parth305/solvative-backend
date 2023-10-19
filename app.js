@@ -4,8 +4,10 @@ const userRouter = require('./src/Routers/user.router');
 const TransecationRouter = require('./src/Routers/transecation.router');
 const httpStatusCode=require("./src/utils/Consts");
 const customResponse = require('./src/utils/CustomResponse');
+const cors=require("cors")
 const app=express();
 
+app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended:true}));
 

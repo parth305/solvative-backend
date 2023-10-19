@@ -2,6 +2,7 @@ const { createUserService, updateUserService, getUsersService } = require("../Se
 
 const createUser = async (req, res,next) => {
   try {
+    console.log(req.body);
     const data = await createUserService(req.body.name);
   
     return res.json(data);
@@ -14,7 +15,7 @@ const createUser = async (req, res,next) => {
 const UpdateUser=async(req,res,next)=>{
 try {
   const data=await updateUserService(req.params.id,req.body.name);
-  return data
+  return  res.json(data);
 } catch (error) {
   next(error)
 }
@@ -23,7 +24,7 @@ try {
 const getUsers=async(req,res,next)=>{
   try {
     const data=await getUsersService();
-    return data
+    return  res.json(data);
   } catch (error) {
     next(error)
   }

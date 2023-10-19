@@ -72,7 +72,19 @@ const deleteTransecationService=async(id)=>{
 
     return "success"
 }
+
+const getp5HistoryService=async(id)=>{
+  const transecation=await Transecation.find({givenBy:id}).populate("givenBy")
+  return transecation
+}
+
+const getRewardHistoryService=async(id)=>{
+  const transecation=await Transecation.find({givenTo:id}).populate("givenTo")
+  return transecation
+}
 module.exports = {
   createTransecationService,
   deleteTransecationService
+  ,getp5HistoryService,
+  getRewardHistoryService
 };
