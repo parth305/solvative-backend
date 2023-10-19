@@ -1,10 +1,8 @@
-// const P5 = require("../Model/P5.model");
 const User = require("../Model/User.model");
-// const Reward = require("../Model/reward.model");
 const CustomError = require("../utils/CustomError");
 const httpStatusCode = require("../utils/Consts");
 const Transecation = require("../Model/transection.model");
-const createP5Service = async (amount, givenTo, userId) => {
+const createTransecationService = async (amount, givenTo, userId) => {
 
 if (givenTo===userId) {
   throw new CustomError(
@@ -29,9 +27,6 @@ if (givenTo===userId) {
       );
   }
 
-  // const p5 = await P5.create({ amount, givenTo });
-  // const reward = await Reward.create({ amount, givenBy: userId });
-
   const transecation=await Transecation.create({givenBy:userId,givenTo:givenTo,amount})
 
   const giverUser = await User.findByIdAndUpdate(
@@ -53,7 +48,7 @@ if (givenTo===userId) {
 };
 
 
-const deleteP5Service=async(id)=>{
+const deleteTransecationService=async(id)=>{
     const transecaton=await Transecation.findById(id);
 
     const giver=await User.findByIdAndUpdate(transecaton.givenBy,{
@@ -78,6 +73,6 @@ const deleteP5Service=async(id)=>{
     return "success"
 }
 module.exports = {
-  createP5Service,
-  deleteP5Service
+  createTransecationService,
+  deleteTransecationService
 };

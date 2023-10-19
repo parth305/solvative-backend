@@ -6,6 +6,13 @@ const createUserService=async (name)=>{
     return data
 }
 
+const updateUserService=async (id,name)=>{
+    const user=await User.findOneAndUpdate(id,{name},{new:true});
+
+    return user
+}
+
 module.exports={
-    createUserService
+    createUserService,
+    updateUserService
 }
