@@ -11,8 +11,14 @@ const updateUserService=async (id,name)=>{
 
     return user
 }
+const getUsersService=async ()=>{
+    const user=await User.find()
+
+    return user
+}
 
 module.exports={
     createUserService,
-    updateUserService
+    updateUserService,
+    getUsersService
 }

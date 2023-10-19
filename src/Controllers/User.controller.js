@@ -1,4 +1,4 @@
-const { createUserService, updateUserService } = require("../Service/user.service");
+const { createUserService, updateUserService, getUsersService } = require("../Service/user.service");
 
 const createUser = async (req, res,next) => {
   try {
@@ -20,7 +20,17 @@ try {
 }
 }
 
+const getUsers=async(req,res,next)=>{
+  try {
+    const data=await getUsersService();
+    return data
+  } catch (error) {
+    next(error)
+  }
+}
+
 module.exports = {
   createUser,
-  UpdateUser
+  UpdateUser,
+  getUsers
 };
