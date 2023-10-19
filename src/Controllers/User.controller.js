@@ -2,7 +2,6 @@ const { createUserService, updateUserService, getUsersService } = require("../Se
 
 const createUser = async (req, res,next) => {
   try {
-    console.log(req.body);
     const data = await createUserService(req.body.name);
   
     return res.json(data);

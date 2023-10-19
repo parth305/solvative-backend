@@ -29,7 +29,6 @@ const deleteTransecation = async (req, res, next) => {
 
 const getP5History = async (req, res, next) => {
   try {
-    console.log("hey");
     const data=await getp5HistoryService(req.params.id)
     return res.json(data)
   } catch (error) {
@@ -39,9 +38,7 @@ const getP5History = async (req, res, next) => {
 
 const getRewardHistory = async (req, res, next) => {
   try {
-    console.log("bro");
     const data=await getRewardHistoryService(req.params.id)
-    console.log(data);
     return res.json(data)
   } catch (error) {
     next(error);
